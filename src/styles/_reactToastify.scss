@@ -1,7 +1,16 @@
 @import "../src/App.module.scss";
 
 .custom-toast {
-    /* Your custom styles here */
-    background-color: $primary;
-    color: white;
+  background-color: $primary;
+  color: white;
+}
+
+.Toastify__toast-icon {
+  svg {
+    fill: #fff;
   }
+}
+
+.Toastify__progress-bar--success {
+  background: #00000037;
+}

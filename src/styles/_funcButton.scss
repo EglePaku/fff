@@ -1,12 +1,19 @@
 @import "../src/App.module.scss";
 
 .btn {
-  color: #fff;
-  border-radius: 500px;
-  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  width: 100%;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   border: 0;
   cursor: pointer;
   @include transition;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     opacity: 0.6;
@@ -14,5 +21,27 @@
 }
 
 .btn-primary {
+  background-color: $primary;
+  color: #fff;
+}
+.btn-secondary {
+  background-color: #fff;
+  border: 1px solid $primary;
+  color: $primary;
+
+  &:hover {
     background-color: $primary;
+    color: #fff;
+    opacity: 1;
   }
+}
+
+.btn-google {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #cdcdcd;
+}
+.btn-fb {
+  background-color: #1778F2;
+  color: #fff;
+}
