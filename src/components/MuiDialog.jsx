@@ -1,19 +1,15 @@
 import PropTypes from "prop-types";
-import {
-  Dialog,
-  // DialogActions,
-  DialogContentText,
-  // Button,
-} from "@mui/material";
+import { Dialog, DialogContentText } from "@mui/material";
 import { toast } from "react-toastify";
-import "../styles/_reactToastify.scss";
+import "../styles/reactToastify.scss";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import GoogleIcon from "@mui/icons-material/Google";
+import "../styles/input.scss";
+import "../styles/muiDialog.scss";
+import CustomButton from "./CustomButton";
+import RegisterForm from "./RegisterForm";
 
-import FuncButton from "./FuncButton";
-import FeedbackForm from "./FeedbackForm";
-
-const FeedbackDialog = ({ open, onClose }) => {
+const MuiDialog = ({ open, onClose }) => {
   const handleSubmit = async (values, formikHelpers) => {
     try {
       // Simulate a successful submission
@@ -22,7 +18,7 @@ const FeedbackDialog = ({ open, onClose }) => {
       onClose();
       console.log(values);
 
-      // toastify
+      // Toastify
       toast.success("Submission successful!", {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 3000,
@@ -47,13 +43,13 @@ const FeedbackDialog = ({ open, onClose }) => {
             <a href="#">Log in</a>
 
             <div className="social-btn-wrap">
-              <FuncButton
+              <CustomButton
                 title="Sign up"
                 className="btn-google"
                 icon={GoogleIcon}
               />
 
-              <FuncButton
+              <CustomButton
                 title="Sign up"
                 className="btn-fb"
                 icon={FacebookOutlinedIcon}
@@ -63,17 +59,16 @@ const FeedbackDialog = ({ open, onClose }) => {
             <h3>Or</h3>
           </DialogContentText>
 
-          {/* FeedbackForm component */}
-          <FeedbackForm handleSubmit={handleSubmit} />
+          <RegisterForm handleSubmit={handleSubmit} />
         </div>
       </div>
     </Dialog>
   );
 };
 
-FeedbackDialog.propTypes = {
+MuiDialog.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 
-export default FeedbackDialog;
+export default MuiDialog;

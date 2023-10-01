@@ -1,0 +1,33 @@
+@import "../src/App.module.scss";
+
+.MuiDialog-container {
+  width: 100vw;
+}
+
+.MuiPaper-elevation {
+  border-radius: 10px !important;
+  max-width: 80vw !important;
+  max-height: calc(100% - 30px) !important;
+}
+
+.dialog-content {
+  display: flex;
+
+  .image-wrap {
+    min-width: 50%;
+    min-height: 100%;
+    background-color: $primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    justify-content: center;
+
+    h3 {
+      color: #fff;
+      max-width: 80%;
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
+}

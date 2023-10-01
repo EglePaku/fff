@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import "../App.module.scss";
-import FuncButton from "./FuncButton";
-import FeedbackDialog from "./FeedbackDialog";
+import CustomButton from "./CustomButton";
+import MuiDialog from "./MuiDialog";
+import "../styles/input.scss";
+import "../styles/loginForm.scss";
 
 const LoginForm = () => {
   const [open, setOpen] = useState(false);
@@ -16,12 +18,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={{
-        email: "",
-        password: "",
-      }}
-    >
+    <Formik>
       <Form>
         <h2 className="title">Login Now</h2>
 
@@ -47,22 +44,14 @@ const LoginForm = () => {
           />
         </div>
 
-   
-
-        <FuncButton
-          title="Login"
-          className="btn-secondary"
-        />
+        <CustomButton title="Login" className="btn-secondary" />
 
         <p>Not a member?</p>
 
         <div onClick={handleClickOpen}>
-          <FuncButton
-            title="Get started"
-            className="btn-primary"
-          />
+          <CustomButton title="Get started" className="btn-primary" />
         </div>
-        <FeedbackDialog open={open} onClose={handleClose} />
+        <MuiDialog open={open} onClose={handleClose} />
       </Form>
     </Formik>
   );

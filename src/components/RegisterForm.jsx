@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
 import "../App.module.scss";
-
-import FuncButton from "./FuncButton";
+import "../styles/input.scss";
+import "../styles/RegisterForm.scss";
+import CustomButton from "./CustomButton";
 
 const validationSchema = Yup.object({
   email: Yup.string().required(),
@@ -12,7 +12,7 @@ const validationSchema = Yup.object({
   password: Yup.string().required().min(3),
 });
 
-const FeedbackForm = ({ handleSubmit }) => (
+const RegisterForm = ({ handleSubmit }) => (
   <Formik
     initialValues={{
       email: "",
@@ -60,29 +60,8 @@ const FeedbackForm = ({ handleSubmit }) => (
           <ErrorMessage name="password" />
         </div>
 
-        {/* <div className={styles.row}>
-          <Field
-            name="title"
-            placeholder="Title..."
-            className={styles.input}
-          />
-          <ErrorMessage name="title" />
-        </div>
-        
-        <div className={styles.row}>
-          <Field
-            name="feedback"
-            placeholder="Feedback..."
-            component="textarea"
-            className={styles.input}
-          />
-          <ErrorMessage name="feedback" />
-        </div> */}
-
-        {/* <FuncButton type="submit" disabled={isSubmitting} title="Submit" /> */}
-
         <div>
-          <FuncButton
+          <CustomButton
             title="Submit"
             className="btn-primary"
             type="submit"
@@ -94,8 +73,8 @@ const FeedbackForm = ({ handleSubmit }) => (
   </Formik>
 );
 
-FeedbackForm.propTypes = {
+RegisterForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
 };
 
-export default FeedbackForm;
+export default RegisterForm;
